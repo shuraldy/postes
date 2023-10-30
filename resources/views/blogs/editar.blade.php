@@ -13,7 +13,7 @@
                    
                         @if ($errors->any())                                                
                             <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                            <strong>¡Revise los campos!</strong>                        
+                            <strong>¡Review the Fields!</strong>                        
                                 @foreach ($errors->all() as $error)                                    
                                     <span class="badge badge-danger">{{ $error }}</span>
                                 @endforeach                        

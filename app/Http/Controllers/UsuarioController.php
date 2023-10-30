@@ -55,10 +55,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|max:25',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
+            'password' => 'required|min:8||max:15|same:confirm-password|regex:/^(?=.*[!@#$%^&*])/',
+            'roles' => 'required',
+        ],[
+        'name.max' => 'El nombre no puede exceder los 25 caracteres.',
+        'password.min' => 'La contraseña debe tener minimo 8 caracteres.',
+        'password.max' => 'La contraseña debe tener maximo 15 caracteres.',
+        'password.regex' => 'La contraseña debe contener al menos un carácter especial (@$!%*?&).',
         ]);
     
         $input = $request->all();
@@ -107,10 +112,15 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|max:25',
             'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'same:confirm-password',
-            'roles' => 'required'
+            'password' => 'same:confirm-password|required|min:8||max:15|same:confirm-password|regex:/^(?=.*[!@#$%^&*])/',
+            'roles' => 'required',
+        ],[
+        'name.max' => 'El nombre no puede exceder los 25 caracteres.',
+        'password.min' => 'La contraseña debe tener minimo 8 caracteres.',
+        'password.max' => 'La contraseña debe tener maximo 15 caracteres.',
+        'password.regex' => 'La contraseña debe contener al menos un carácter especial (@$!%*?&).',
         ]);
     
         $input = $request->all();
