@@ -40,6 +40,9 @@
         <i class=" fa fa-search"></i><span>Auditoria</span>
     </a>
     @endcan -->
+    <a class="nav-link" href="/perfil">
+        <i class="fa fa-user" aria-hidden="true"></i><span>perfil</span>
+    </a>
 
 </li>
 

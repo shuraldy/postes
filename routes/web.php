@@ -10,6 +10,7 @@ use App\Http\Controllers\PosteController;
 use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\MapaController;
 use App\Http\Controllers\AuditoriaController; // Agregamos el controlador de consulta
+use App\Http\Controllers\PerfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('consulta', ConsultaController::class);
     Route::resource('mapa', MapaController::class);
     Route::resource('auditoria', AuditoriaController::class);
+    Route::resource('perfil', PerfilController::class);
 
     // Nueva ruta de consulta
     // Route::get('/consulta', [ConsultaController::class, 'index'])->name('consulta');
