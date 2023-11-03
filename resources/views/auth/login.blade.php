@@ -34,9 +34,9 @@
                     <div class="d-block">
                         <label for="password" class="control-label">Password</label>
                         <div class="float-right">
-                            <!-- <a href="{{ route('password.request') }}" class="text-small">
-                                Forgot Password?
-                            </a> -->
+                            <a href="{{ route('password.request') }}" class="text-small">
+                                olvidaste tu contraseña?
+                            </a>
                         </div>
                     </div>
                     <input aria-describedby="passwordHelpBlock" id="password" type="password"
