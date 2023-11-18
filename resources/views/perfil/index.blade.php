@@ -36,7 +36,7 @@
                                             @csrf
                                             <button type="submit" class="btn btn-info">Editar</button>
                                         </form>
-                                        <!-- Aquí puedes agregar lógica para borrar si lo necesitas -->
+                                        
                                     </td>
                                 </tr>
                             </tbody>

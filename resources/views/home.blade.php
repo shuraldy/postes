@@ -22,7 +22,7 @@
                                             @endphp
                                             <h2 class="text-right"><i class="fa fa-users f-left"></i><span>{{$cant_usuarios}}</span></h2>
                                             
-                                            <p class="m-b-0 text-right"><a href="/usuarios" class="text-white">Ver más</a></p>
+                                            <p class="m-b-0 text-right"><a href="/usuarios" class="text-white"></a></p>
                                             
                                         </div>                                            
                                     </div>                                    
@@ -37,7 +37,7 @@
                                                 $cant_roles = Role::count();                                                
                                             @endphp
                                             <h2 class="text-right"><i class="fa fa-user-lock f-left"></i><span>{{$cant_roles}}</span></h2>
-                                            <p class="m-b-0 text-right"><a href="/roles" class="text-white">Ver más</a></p>
+                                            <p class="m-b-0 text-right"><a href="/roles" class="text-white"></a></p>
                                         </div>
                                     </div>
                                 </div>                                                                
@@ -51,20 +51,20 @@
                                                 $cant_blogs = Blog::count();                                                
                                             @endphp
                                             <h2 class="text-right"><i class="fa fa-blog f-left"></i><span>{{$cant_blogs}}</span></h2>
-                                            <p class="m-b-0 text-right"><a href="/blogs" class="text-white">Ver más</a></p>
+                                            <p class="m-b-0 text-right"><a href="/blogs" class="text-white"></a></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-xl-4">
                                     <div class="card bg-c-green order-card">
                                         <div class="card-block">
-                                            <h5>Postes</h5>                                               
+                                            <h5>Centros Comerciales</h5>                                               
                                             @php
-                                                use App\Models\Poste;
-                                                $cant_postes = Poste::count();                                                
+                                                use App\Models\Centro;
+                                                $cant_centros = Centro::count();                                                
                                             @endphp
-                                            <h2 class="text-right"><i class="fa fa-info f-left"></i><span>{{$cant_postes}}</span></h2>
-                                            <p class="m-b-0 text-right"><a href="/postes" class="text-white">Ver más</a></p>
+                                            <h2 class="text-right"><i class="fa fa-building f-left"></i><span>{{$cant_centros}}</span></h2>
+                                            <p class="m-b-0 text-right"><a href="/postes" class="text-white"></a></p>
                                         </div>
                                     </div>
                                 </div>

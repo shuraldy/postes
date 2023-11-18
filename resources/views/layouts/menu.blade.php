@@ -15,12 +15,7 @@
     @can('ver-blog') 
     <a class="nav-link" href="/blogs">
         <i class=" fas fa-blog"></i><span>Blogs</span>
-    </a>
-    @endcan
-    @can('ver-poste')
-    <a class="nav-link" href="/postes">
-        <i class=" fa fa-info"></i><span>Ingreso de Postes</span>
-    </a>
+   
     @endcan
     @can('consultar')
     <a class="nav-link" href="/consulta">
@@ -28,18 +23,12 @@
     </a>
     @endcan
 
-    </a>
-    @can('ver-mapa')
-    <a class="nav-link" href="/mapa">
-        <i class=" fa fa-map"></i><span>Mapa</span>
+    @can('ver-centro')
+    <a class="nav-link" href="/centros">
+        <i class=" fa fa-building"></i><span>Centros Comerciales</span>
     </a>
     @endcan
-
-    <!-- @can('ver-auditoria')
-    <a class="nav-link" href="/auditoria">
-        <i class=" fa fa-search"></i><span>Auditoria</span>
-    </a>
-    @endcan -->
+    
     <a class="nav-link" href="/perfil">
         <i class="fa fa-user" aria-hidden="true"></i><span>perfil</span>
     </a>

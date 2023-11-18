@@ -1,9 +1,19 @@
 @extends('layouts.app')
 
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+ <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+ <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+ <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+ <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Consulta de Postes</h3>
+            <h3 class="page__heading">Consulta de centros comerciales</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -13,56 +23,32 @@
                         
                            
 
-                            <table class="table table-striped mt-2" id="postesTable">
+                            <table class="table table-striped mt-2" id="centrosTable">
                                 <thead style="background-color:#6777ef">                                     
-                                    <th style="display: none;">ID</th>
-                                    <th style="color:#fff;">Nombre Poste</th>
-                                    <th style="color:#fff;">Latitud</th>
-                                    <th style="color:#fff;">Longitud</th>
-                                    <th style="color:#fff;">Altura</th>
-                                    <th style="color:#fff;">Material</th>
+                                    <th style="display: none;">id</th>
+                                    <th style="color:#fff;">Nombre del negocio</th>
+                                    <th style="color:#fff;">Ubicación</th>
+                                    <th style="color:#fff;">Nombre</th>
+                                    <th style="color:#fff;">Apellido</th>
+                                    <th style="color:#fff;">Telefono</th>
                                     <th style="color:#fff;">Estado</th>
-                                    <th style="color:#fff;">Comuna</th>
-                                    <th style="color:#fff;">Dirección</th>
-                                    <th style="color:#fff;">Nivel Tensión</th>
-                                    <th style="color:#fff;">Observación</th>
-                                    <th style="color:#fff;">fecha de creacion</th> 
-                                    <th style="color:#fff;">fecha de modificación</th>                                                                  
+                                    <th style="color:#fff;">Categoria</th>
+                                    <th style="color:#fff;">Subcategoria</th>                                                                 
                                 </thead>
                                 <tbody>
-                                    @foreach ($postes as $poste)
+                                    @foreach ($centros as $centro)
                                         <tr>
-                                            <td style="display: none;">{{ $poste->id }}</td>
-                                            <td>{{ $poste->nombre_poste }}</td>
-                                            <td>{{ $poste->latitud }}</td>
-                                            <td>{{ $poste->longitud }}</td>
-                                            <td>{{ $poste->altura }}</td>
-                                            <td>{{ $poste->material }}</td>
-                                            <td>{{ $poste->estado }}</td>
-                                            <td>{{ $poste->comuna }}</td>
-                                            <td>{{ $poste->direccion }}</td>
-                                            <td>{{ $poste->nivel_tension }}</td>
-                                            <td>{{ $poste->observacion }}</td>
-                                            <td>{{ $poste->created_at }}</td>
-                                            <td>{{ $poste->updated_at }}</td>
-                                            
+                                            <td style="display: none;">{{ $centro->id }}</td>
+                                            <td>{{ $centro->nombre_negocio }}</td>
+                                            <td>{{ $centro->ubicacion }}</td>
+                                            <td>{{ $centro->nombre }}</td>
+                                            <td>{{ $centro->apellido }}</td>
+                                            <td>{{ $centro->telefono }}</td>
+                                            <td>{{ $centro->estado }}</td>
+                                            <td>{{ $centro->categoria }}</td>
+                                            <td>{{ $centro->opciones }}</td>                               
                                         </tr>
                                     @endforeach
-                                    <!-- <tfoot style="width: 50px;">
-                            <tr>
-                                <th>Nombre Poste</th>
-                                <th>Latitud</th>
-                                <th>Longitud</th>
-                                <th>Altura</th>
-                                <th>Material</th>
-                                <th>Estado</th>
-                                <th>Comuna</th>
-                                <th>Direccion</th>
-                                <th>Nivel tension</th>
-                                <th>Observacion</th>
-                                <th>Fecha de creacion</th>
-                            </tr>
-                             </tfoot> -->
                                 </tbody>
                             </table>
 
@@ -76,29 +62,17 @@
         <div id="map" style="height: 400px;"></div>
     </section>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
- <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
- <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
- <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
- <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+<script>
 
 
 
- 
-    <script>
-
-
-
-new DataTable('#postesTable', {
+new DataTable('#centrosTable', {
     paging: false,
     scrollCollapse: true,
     scrollY: '500px',
     dom: 'Bfrtip',
-    buttons: ['copy', 'csv', 'excel','print'],
+    buttons: ['copy', 'csv', 'excel','print','pdf'],
 
   
 
@@ -133,28 +107,7 @@ new DataTable('#postesTable', {
         });
 
     </script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script>
-
-new DataTable('#postesTable');
-    </script> -->
-
-    
+   
 
 @endsection
 

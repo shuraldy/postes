@@ -6,11 +6,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\PosteController;
 use App\Http\Controllers\ConsultaController;
-use App\Http\Controllers\MapaController;
 use App\Http\Controllers\AuditoriaController; // Agregamos el controlador de consulta
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\CentroController;// se agrega controlador de centro comercial
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('mapa', MapaController::class);
     Route::resource('auditoria', AuditoriaController::class);
     Route::resource('perfil', PerfilController::class);
+    Route::resource('centros', CentroController::class);
 
     // Nueva ruta de consulta
     // Route::get('/consulta', [ConsultaController::class, 'index'])->name('consulta');
