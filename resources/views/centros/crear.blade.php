@@ -13,6 +13,15 @@
                         <div class="card-body">
                             @if ($errors->any())
                                  <!-- ... Código de manejo de errores ... -->
+                                <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                                    <strong>¡Revise los campos!</strong>
+                                    @foreach ($errors->all() as $error)
+                                        <span class="badge badge-danger">{{ $error }}</span>
+                                    @endforeach
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                                  <div class="alert alert-dark alert-dismissible fade show" role="alert">
                                     <strong>¡Revise los campos!</strong>
                                     @foreach ($errors->all() as $error)
@@ -63,6 +72,7 @@
                                         <div class="form-group">
                                             <label for="">Estado</label>
                                             <select name="estado" class="form-control">
+                                                <option value="">Seleccione una opción</option>
                                                 <option value="Activo">Activo</option>
                                                 <option value="Inactivo">Inactivo</option>
                                                 <option value="Deuda">Deuda</option>
@@ -74,6 +84,7 @@
                                         <div class="form-group">
                                             <label for="categoria">Categoría</label>
                                             <select id="categoria" name="categoria" class="form-control">
+                                                <option value="">Seleccione una opción</option>
                                                 <option value="Alimentos">Alimentos</option>
                                                 <option value="Ropa_Textil">Ropa y textiles</option>
                                                 <option value="Deportes">Deportes</option>
@@ -89,13 +100,7 @@
                                         </div>
                                     </div>
                                     
-                                    
-                                    <!-- <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" name="observacion" style="height: 100px"></textarea>
-                                            <label for="observacion">Observación</label>
-                                        </div>
-                                    </div> -->
+            
                                 </div>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </form>
